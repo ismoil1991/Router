@@ -1,3 +1,11 @@
+<?php
+include 'functions.php';
+$db = include 'database/statrt.php';
+
+$id = $_GET['id'];
+$post = $db->getOne('posts',$id);
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,13 +21,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <form action="/store.php" method="post">
+            <form action="/update.php?id=<?=$post['id'];?>" method="post">
                 <div class="form-group">
                     <label for="">Title</label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" value="<?=$post['title'];?>">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success">Add Post</button>
+                    <button class="btn btn-warning">Edit Post</button>
                 </div>
             </form>
         </div>

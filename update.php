@@ -1,10 +1,10 @@
 <?php
-include "functions.php";
+include 'functions.php';
 $db = include 'database/statrt.php';
 
-$db->create('posts', [
+$post = $db->update('posts', [
     'title' => $_POST['title']
-]);
+], $_GET['id']);
 
 header('Location: /index.php');
 ?>

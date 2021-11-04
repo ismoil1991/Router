@@ -28,7 +28,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <a href="#" class="btn btn-success">Add Posts</a>
+            <a href="create.php" class="btn btn-success">Add Posts</a>
             <table class="table">
                 <thead>
                 <tr>
@@ -41,11 +41,10 @@
                 <?php foreach ($posts as $post): ?>
                     <tr>
                         <th scope="row"><?= $post['id']; ?></th>
-                        <td><?= $post['title']; ?></td>
+                        <td><a href="/show.php?id=<?= $post['id'];?>"><?= $post['title']; ?></a></td>
                         <td>
-                            <a href="show.php?id="<?= $posts['id'];?> class="btn btn-info">Show</a>
-                            <a href="edit.php?id="<?= $posts['id'];?> class="btn btn-warning">Edit</a>
-                            <a href="delete.php?id="<?= $posts['id'];?> class="btn btn-danger">Delete</a>
+                            <a href="edit.php?id=<?= $post['id'];?>" class="btn btn-warning">Edit</a>
+                            <a href="delete.php?id=<?= $post['id'];?>" class="btn btn-danger" onclick="return confirm('Ты уверен?')">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
