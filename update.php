@@ -1,6 +1,6 @@
 <?php
 include 'functions.php';
-$db = include 'database/statrt.php';
+$db = include 'database/start.php';
 
 $post = $db->update('posts', [
     'title' => $_POST['title']
